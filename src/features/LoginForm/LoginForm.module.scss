@@ -1,6 +1,8 @@
 
 
 .root {
+    padding: 10px;
+    border-radius: 10px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -17,4 +19,13 @@
     button {
         width: fit-content;
     }
-} 
+    
+    &.notValid {
+        background-color: #ff000090;
+    }
+    
+    &:focus-within {
+        background-color: #ffffff90;
+    }
+}
+

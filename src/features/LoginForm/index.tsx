@@ -26,7 +26,8 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
 
     const { 
         handleSubmit, 
-        register, 
+        register,
+        formState: { isValid, isDirty }
     } = useForm<LoginRequest>({
         mode: "onChange",
         resolver: yupResolver(loginSchema),
@@ -47,7 +48,7 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
         }
     };
 
-    const classes = clsx(className, styles.root);
+    const classes = clsx(className, styles.root, (!isValid && isDirty) && styles.notValid);
 
     return (
         <form
